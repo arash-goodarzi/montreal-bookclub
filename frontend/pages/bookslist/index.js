@@ -8,7 +8,7 @@ import {  getSession,signIn } from 'next-auth/react'
 
 const BooksList = () => {
 
-  const [reserved, setreserved] = useState('')
+  const [reserved, setReserved] = useState('')
   const [booksDB, setBooksDB] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   // const { data: session, loading } = useSession();
@@ -83,13 +83,13 @@ const BooksList = () => {
               return val
             }else if (val.translators.find(o => o.toLowerCase().includes(searchTerm.toLowerCase()))) {
               return val
-            }else if (val.donators.find(o => o.toLowerCase().includes(searchTerm.toLowerCase()))) {
+            }else if (val.donors.find(o => o.toLowerCase().includes(searchTerm.toLowerCase()))) {
               return val
             }
           }).map((book,idx) => {
             return (
               <label key={book.id} htmlFor={book.id} style={{display:'flex',flexDirection:'row',margin:'5px'}}>
-                <div><input disabled={!book.available} type="radio" id={book.id} name="bookselection" onChange={(e)=>setreserved(book.id)} /></div>
+                <div><input disabled={book.reserved} type="radio" id={book.id} name="bookselection" onChange={(e)=>setReserved(book.id)} /></div>
                 <ItemBook key={idx} book={book} />
               </label>
             )

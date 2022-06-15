@@ -1,5 +1,13 @@
 export default function handler(req, res) {
+    
     if (req.method === 'GET') {
+        // fetch('http://localhost:8080/api/books')
+        //     .then(response => response.json())
+        //     .then(response => console.log(response))
+        //     .then(data => res.status(200).json(data))
+        //     .catch(console.log("fffffffffffffff"))
+////////////////////////////////////////////////////
+        
         res.status(200).json(
         [
             {
@@ -7,8 +15,8 @@ export default function handler(req, res) {
             title: 'zoro',
             writers: ['orod'],
             translators: ['translator-name'],
-            donators: ['donator-name'],
-            available: true,
+            donors: ['donator-name'],
+            reserved: true,
             bookImage:"/booksImage/1.jpg"
             },
             {
@@ -16,8 +24,8 @@ export default function handler(req, res) {
             title: 'moro',
             writers: ['garsia'],
             translators: ['translator-name'],
-            donators: ['mahsa,Edd'],
-            available: true,
+            donors: ['mahsa,Edd'],
+            reserved: true,
             bookImage:"/booksImage/2.jpg"
             },
             {
@@ -25,8 +33,8 @@ export default function handler(req, res) {
             title: 'first title',
             writers: ['tita,tuba'],
             translators: ['translator-name'],
-            donators: ['TeD,fRank'],
-            available: true,
+            donors: ['TeD,fRank'],
+            reserved: true,
             bookImage:"/booksImage/1.jpg"
             },
             {
@@ -34,8 +42,8 @@ export default function handler(req, res) {
             title: 'aba',
             writers: ['mouse,bird'],
             translators: ['translator-name'],
-            donators: ['Suzi,Lee'],
-            available: true,
+            donors: ['Suzi,Lee'],
+            reserved: true,
             bookImage:"/booksImage/2.jpg"
             },
             {
@@ -43,8 +51,8 @@ export default function handler(req, res) {
             title: 'baba',
             writers: ['writer-name'],
             translators: ['translator-name'],
-            donators: ['donator-name'],
-            available: true,
+            donors: ['donator-name'],
+            reserved: true,
             bookImage:"/booksImage/1.jpg"
             },
             {
@@ -52,8 +60,8 @@ export default function handler(req, res) {
             title: 'abcd',
             writers: ['writer-name'],
             translators: ['translator-name'],
-            donators: ['donator-name'],
-            available: true,
+            donors: ['donator-name'],
+            reserved: true,
             bookImage:"/booksImage/2.jpg"
             },
             {
@@ -61,8 +69,8 @@ export default function handler(req, res) {
             title: 'kafkA',
             writers: ['writer-name'],
             translators: ['translator-name'],
-            donators: ['donator-name'],
-            available: false,
+            donors: ['donator-name'],
+            reserved: false,
             bookImage:"/booksImage/1.jpg"
             },
             {
@@ -70,8 +78,8 @@ export default function handler(req, res) {
             title: 'second title',
             writers: ['writer-name'],
             translators: ['translator-name'],
-            donators: ['donator-name'],
-            available: true,
+            donors: ['donator-name'],
+            reserved: true,
             bookImage:"/booksImage/2.jpg"
             },
             {
@@ -79,8 +87,8 @@ export default function handler(req, res) {
             title: 'first title',
             writers: ['writer-name'],
             translators: ['translator-name'],
-            donators: ['donator-name'],
-            available: true,
+            donors: ['donator-name'],
+            reserved: true,
             bookImage:"/booksImage/1.jpg"
             },
             {
@@ -88,8 +96,8 @@ export default function handler(req, res) {
             title: 'second title',
             writers: ['writer-name'],
             translators: ['translator-name'],
-            donators: ['donator-name'],
-            available: true,
+            donors: ['donator-name'],
+            reserved: true,
             bookImage:"/booksImage/2.jpg"
             },
             {
@@ -97,8 +105,8 @@ export default function handler(req, res) {
             title: 'first title',
             writers: ['writer-name'],
             translators: ['translator-name'],
-            donators: ['donator-name'],
-            available: true,
+            donors: ['donator-name'],
+            reserved: true,
             bookImage:"/booksImage/1.jpg"
             },
             {
@@ -106,8 +114,8 @@ export default function handler(req, res) {
             title: 'second title',
             writers: ['writer-name'],
             translators: ['translator-name'],
-            donators: ['donator-name'],
-            available: false,
+            donors: ['donator-name'],
+            reserved: false,
             bookImage:"/booksImage/2.jpg"
             },
         ]

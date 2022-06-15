@@ -1,5 +1,3 @@
-// title, writers, translators, available, donators, bookImage
-
 import Image from 'next/image'
 
 const ItemBook = ({ book }) => {
@@ -35,20 +33,14 @@ const ItemBook = ({ book }) => {
           <div >
             <ul>
               {
-                book.donators.map((donator, idx) => {
+                book.donors.map((donator, idx) => {
                   return (
                     <li key={idx}>donator: { donator}</li>
                   )
                 })
               }
             </ul>
-          </div>
-          <div >
-
-
-          </div>
-
-          
+          </div>     
       </div>
   )
 }

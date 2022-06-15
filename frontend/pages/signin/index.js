@@ -22,7 +22,7 @@ const Login = () => {
 
   const handleOAuthSignIn = (provider) => () => signIn(provider)
 
-  const [usernamePassword, setUsernamePassword] = useState({ email: '', password: '' });
+  const [usernamePassword, setUsernamePassword] = useState({ username: '', password: '' });
 
   const handleChange = (e) => {
     console.log("&&&&&&&&&")
@@ -40,8 +40,16 @@ const Login = () => {
     console.log("%%%%%%%%%%%%%%%%")
     console.log("%%%%%%%%%%%%%%%%")
 
-    const username = usernamePassword.email
+    const username = usernamePassword.username
     const password = usernamePassword.password
+
+    fetch("http://localhost:8080/api/login")
+      .then(res=>console.log(res))
+      // .then(res=>res.json())
+      // .then(res=>console.log(")))))))))",res))
+      // .then(data=>sessionStorage.setItem('JWT',data))
+      .catch()
+
 
     // const rr = loginUser(username,password)
 
@@ -60,15 +68,15 @@ const Login = () => {
     //   }
     // };
 
-    axios.post('http://localhost:8080/api/login', {
-      Headers: {
-      'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ6b3JvQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJpc3MiOiIvYXBpL2xvZ2luIiwiZXhwIjoxNjU0ODIzNzY5fQ.FHrA7czYHPRTqsa4dJtvcLabtzXKvNiiHhynAP45WNQ'
-    }}, {
-      auth: {
-        username:usernamePassword.email,
-        password:usernamePassword.password
-      }
-    })
+    // axios.post('http://localhost:8080/api/login', {
+    //   Headers: {
+    //   'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ6b3JvQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJpc3MiOiIvYXBpL2xvZ2luIiwiZXhwIjoxNjU0ODIzNzY5fQ.FHrA7czYHPRTqsa4dJtvcLabtzXKvNiiHhynAP45WNQ'
+    // }}, {
+    //   auth: {
+    //     username:usernamePassword.email,
+    //     password:usernamePassword.password
+    //   }
+    // })
   }
 
   // const loginUser = async (username,password) => {
@@ -91,7 +99,7 @@ const Login = () => {
       <button onClick={handleOAuthSignIn('twitter')}><BsTwitter />{' '}Twitter</button>
       <button onClick={handleOAuthSignIn('google')}><BsGoogle />{' '}Google</button>
       <form>
-        <div><input type="email" name="email" placeholder='email' onChange={handleChange}/></div>
+        <div><input type="email" name="username" placeholder='email' onChange={handleChange}/></div>
         <div><input type="password" name="password" placeholder='password' onChange={handleChange} /></div>
         <button type="submit" onClick={handleSubmit}>Submit</button>
       </form>

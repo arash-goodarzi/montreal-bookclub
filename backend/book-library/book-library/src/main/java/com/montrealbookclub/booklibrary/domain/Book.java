@@ -18,7 +18,7 @@ public class Book {
     private Long id;
     private String title;
     private String borrower;
-    private Blob image;
+    private Blob bookImage;
     private Boolean reserved;
 
     @ElementCollection
