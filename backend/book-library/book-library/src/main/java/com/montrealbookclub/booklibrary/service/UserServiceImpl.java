@@ -1,7 +1,9 @@
 package com.montrealbookclub.booklibrary.service;
 
+import com.montrealbookclub.booklibrary.domain.Book;
 import com.montrealbookclub.booklibrary.domain.Role;
 import com.montrealbookclub.booklibrary.domain.User;
+import com.montrealbookclub.booklibrary.repository.BookRepository;
 import com.montrealbookclub.booklibrary.repository.RoleRepository;
 import com.montrealbookclub.booklibrary.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +27,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService, UserDetailsService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final BookRepository bookRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Override
@@ -60,12 +63,29 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
+    public Book saveBook(Book book) {
+        log.info("Saving book {}", book.getTitle());
+        return bookRepository.save(book);
+    }
+
+    @Override
     public void addRoleToUser(String username, String roleName) {
         log.info("Adding role {} to user {}", roleName,username);
         User user = userRepository.findByUsername(username);
         log.info("&&&&&&&&&&&&&&&&&");
         Role role = roleRepository.findByName(roleName);
         user.getRoles().add(role);
+    }
+
+    @Override
+    public User addBookToUser(String username, String bookName) {
+        log.info("Adding book{} to user {}",bookName,username);
+        User user = userRepository.findByUsername(username);
+        Book book = bookRepository.findByTitle(bookName);
+        user.getBooks().add(book);
+        book.setReserved(true);
+        bookRepository.save(book);
+        return userRepository.save(user);
     }
 
     @Override
@@ -78,6 +98,23 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public List<User> getUsers() {
         log.info("Fetching all users");
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<Book> getBooks() {
+        log.info("Fetching all books");
+        return  bookRepository.findAll();
+    }
+
+    @Override
+    public User removeBookFromUser(String username, String title) {
+        log.info("removing book{} to user {}",title,username);
+        User user = userRepository.findByUsername(username);
+        Book book = bookRepository.findByTitle(title);
+        user.getBooks().remove(book);
+        book.setReserved(false);
+        bookRepository.save(book);
+        return userRepository.save(user);
     }
 
 

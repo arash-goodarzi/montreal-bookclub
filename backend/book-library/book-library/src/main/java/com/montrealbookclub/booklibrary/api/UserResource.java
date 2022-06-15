@@ -5,11 +5,14 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.montrealbookclub.booklibrary.domain.Book;
 import com.montrealbookclub.booklibrary.domain.Role;
 import com.montrealbookclub.booklibrary.domain.User;
 import com.montrealbookclub.booklibrary.service.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -35,6 +38,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping("/api")
 @RequiredArgsConstructor
 @CrossOrigin(origins ="*")
+@Slf4j
 public class UserResource {
     private final UserService userService;
 
@@ -60,6 +64,27 @@ public class UserResource {
     public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUserForm form) {
         userService.addRoleToUser(form.getUserName(),form.getRoleName());
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/books")
+    public ResponseEntity<List<Book>> getBooks(){return ResponseEntity.ok().body(userService.getBooks());}
+
+    @PostMapping("/book/save")
+    public ResponseEntity<Book> saveBook(@RequestBody Book book){
+        URI uri =URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/book/save").toString());
+        return ResponseEntity.created(uri).body(userService.saveBook(book));
+    }
+
+    @PostMapping("/book/reserve/{name}")
+    public ResponseEntity<User> reserveBook(@PathVariable("name") String title, @RequestBody User user){
+        URI uri =URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/book/save").toString());
+        return ResponseEntity.created(uri).body(userService.addBookToUser(user.getUsername(),title));
+    }
+
+    @PostMapping("/book/unReserve/{name}")
+    public ResponseEntity<User> unReserveBook(@PathVariable("name") String title, @RequestBody User user){
+        URI uri =URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/book/save").toString());
+        return ResponseEntity.created(uri).body(userService.removeBookFromUser(user.getUsername(),title));
     }
 
 //    @CrossOrigin(origins = "http://localhost:3000")
@@ -104,7 +129,6 @@ public class UserResource {
             throw new RuntimeException("Refresh token is missiong");
         }
     }
-
 
 }
 
