@@ -18,9 +18,6 @@ export default function Home() {
         <h1 className={styles.title}>
           { session ? `${session.user.name },`:''} Welcome to <a href="http://persianbookclub.com/">Montreal BookClub</a>
         </h1>
-
-
-
       </main>
 
       <footer className={styles.footer}>

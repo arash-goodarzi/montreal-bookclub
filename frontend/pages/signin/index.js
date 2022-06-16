@@ -1,10 +1,14 @@
 import { signIn } from 'next-auth/react'
-import React,{ useState } from 'react'
+import React,{ useState,useEffect } from 'react'
 import { BsGithub, BsTwitter, BsGoogle } from 'react-icons/bs'
-import axios from 'axios'
+import { useSession } from 'next-auth/react'
+import Router from 'next/router'
+import { useRouter } from 'next/router'
+
+
 
 const Login = () => {
-
+  const router = useRouter()
   const providers = [
     {
       name: 'github',
@@ -20,8 +24,10 @@ const Login = () => {
     },
   ]
 
-  const handleOAuthSignIn = (provider) => () => signIn(provider)
-
+  const handleOAuthSignIn = (provider) => () => {
+    signIn(provider)
+     router.push('/')
+  }
   const [usernamePassword, setUsernamePassword] = useState({ username: '', password: '' });
 
   const handleChange = (e) => {
@@ -45,52 +51,11 @@ const Login = () => {
 
     fetch("http://localhost:8080/api/login")
       .then(res=>console.log(res))
-      // .then(res=>res.json())
-      // .then(res=>console.log(")))))))))",res))
-      // .then(data=>sessionStorage.setItem('JWT',data))
+      .then(res=>res.json())
+      .then(data=>sessionStorage.setItem('JWT',data))
+      .then(data=>sessionStorage.setItem('JWT',data))
       .catch()
-
-
-    // const rr = loginUser(username,password)
-
-    // const options = {
-    //   url: 'http://localhost:8080/api/login',
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ6b3JvQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJpc3MiOiIvYXBpL2xvZ2luIiwiZXhwIjoxNjU0ODIzMDQyfQ.m_o7MZ-6M6qL8ghL9hKlxWOsoI19ywjaM6mtGRPzSpk'
-
-    //   },
-    //   data: {
-    //     username:usernamePassword.email,
-    //     password:usernamePassword.password
-    //   }
-    // };
-
-    // axios.post('http://localhost:8080/api/login', {
-    //   Headers: {
-    //   'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ6b3JvQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfTUFOQUdFUiIsIlJPTEVfVVNFUiJdLCJpc3MiOiIvYXBpL2xvZ2luIiwiZXhwIjoxNjU0ODIzNzY5fQ.FHrA7czYHPRTqsa4dJtvcLabtzXKvNiiHhynAP45WNQ'
-    // }}, {
-    //   auth: {
-    //     username:usernamePassword.email,
-    //     password:usernamePassword.password
-    //   }
-    // })
   }
-
-  // const loginUser = async (username,password) => {
-  //   const mmm = await axios.post('http://localhost:8080/api/login', { username: 'zoro@gmail.com', password: '1234' });
-  //   console.log(mmm);
-  // }
-
-
-
-
-
-  // const loginUser = async (username,password) => {
-  //   const {data} = await axios.post('http://localhost:8080/api/login', { username, password });
-  // }
 
   return (
     <>

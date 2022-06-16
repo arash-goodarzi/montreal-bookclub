@@ -31,7 +31,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer{
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
 
@@ -73,11 +73,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
 //        return source;
 //    }
 
-    @Override
-    public void addCorsMappings(@Lazy CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS").allowedOrigins("*")
-        .allowedOrigins("http://localhost:3000");
-    }
 
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry){
+//        registry.addMapping("/**")
+//                .allowedMethods("*")
+//                .allowedOrigins("http://localhost:3000")
+//                .allowedHeaders("*")
+//                .allowCredentials(false)
+//                .maxAge(-1);
+//    }
 }
