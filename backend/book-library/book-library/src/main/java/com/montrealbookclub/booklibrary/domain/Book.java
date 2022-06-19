@@ -18,8 +18,11 @@ public class Book {
     private Long id;
     private String title;
     private String borrower;
-    private Blob bookImage;
+
+    private String bookImageLink;
+    private String bookInfoLink;
     private Boolean reserved;
+
 
     @ElementCollection
     private List<String> writers ;

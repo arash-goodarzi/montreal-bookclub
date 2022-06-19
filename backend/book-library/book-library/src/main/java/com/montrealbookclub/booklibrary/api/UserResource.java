@@ -66,16 +66,17 @@ public class UserResource {
         return ResponseEntity.created(uri).body(userService.saveBook(book));
     }
 
-    @PostMapping("/book/reserve/{name}")
-    public ResponseEntity<User> reserveBook(@PathVariable("name") String title, @RequestBody User user){
+    @PostMapping("/book/reserve/{id}")
+    public ResponseEntity<User> reserveBook(@PathVariable("id") Long id, @RequestBody User user){
         URI uri =URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/book/save").toString());
-        return ResponseEntity.created(uri).body(userService.addBookToUser(user.getUsername(),title));
+
+        return ResponseEntity.created(uri).body(userService.addBookToUser(user.getUsername(),id));
     }
 
-    @PostMapping("/book/unReserve/{name}")
-    public ResponseEntity<User> unReserveBook(@PathVariable("name") String title, @RequestBody User user){
+    @PostMapping("/book/unReserve/{id}")
+    public ResponseEntity<User> unReserveBook(@PathVariable("id") Long id, @RequestBody User user){
         URI uri =URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/book/save").toString());
-        return ResponseEntity.created(uri).body(userService.removeBookFromUser(user.getUsername(),title));
+        return ResponseEntity.created(uri).body(userService.removeBookFromUser(user.getUsername(),id));
     }
 
     @GetMapping("/token/refresh")

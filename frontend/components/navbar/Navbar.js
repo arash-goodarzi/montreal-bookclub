@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className='header'>
       <h1 className='logo'>
-        <a href='#'>NextAuth</a>
+        <a href='#'>MTL Book Club</a>
       </h1>
       <ul className={`main-nav ${!session && loading ? 'loading' : 'loaded'}`}>
         <li>

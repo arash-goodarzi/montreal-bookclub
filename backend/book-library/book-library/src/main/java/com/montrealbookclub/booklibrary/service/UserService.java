@@ -11,13 +11,13 @@ public interface UserService {
     Role saveRole(Role role);
     Book saveBook(Book book);
     void addRoleToUser(String username, String roleName);
-    User addBookToUser(String username, String bookName);
-
+    User addBookToUser(String username, Long id);
+    User removeBookFromUser(String username, Long id);
     User getUser(String username);
     List<User> getUsers();
 
     List<Book> getBooks();
 
 
-    User removeBookFromUser(String username, String title);
+
 }

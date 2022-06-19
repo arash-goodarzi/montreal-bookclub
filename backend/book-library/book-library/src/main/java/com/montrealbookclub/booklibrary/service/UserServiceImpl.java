@@ -19,6 +19,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -78,13 +79,28 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public User addBookToUser(String username, String bookName) {
-        log.info("Adding book{} to user {}",bookName,username);
+    public User addBookToUser(String username, Long id) {
+        log.info("Adding id{} to user {}",id,username);
         User user = userRepository.findByUsername(username);
-        Book book = bookRepository.findByTitle(bookName);
-        user.getBooks().add(book);
-        book.setReserved(true);
-        bookRepository.save(book);
+        Optional<Book> book = bookRepository.findById(id);
+//        Book book = bookRepository.findByTitle(bookName);
+        user.getBooks().add(book.get());
+        book.get().setReserved(true);
+        book.get().setBorrower(username);
+        bookRepository.save(book.get());
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User removeBookFromUser(String username, Long id) {
+        log.info("removing id{} to user {}",id,username);
+        User user = userRepository.findByUsername(username);
+//        Book book = bookRepository.findByTitle(title);
+        Optional<Book> book = bookRepository.findById(id);
+        user.getBooks().remove(book.get());
+        book.get().setReserved(false);
+        book.get().setBorrower("");
+        bookRepository.save(book.get());
         return userRepository.save(user);
     }
 
@@ -106,16 +122,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return  bookRepository.findAll();
     }
 
-    @Override
-    public User removeBookFromUser(String username, String title) {
-        log.info("removing book{} to user {}",title,username);
-        User user = userRepository.findByUsername(username);
-        Book book = bookRepository.findByTitle(title);
-        user.getBooks().remove(book);
-        book.setReserved(false);
-        bookRepository.save(book);
-        return userRepository.save(user);
-    }
+
 
 
 }
