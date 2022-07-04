@@ -47,12 +47,12 @@ https://drive.google.com/file/d/1El5tmUrr9RnNJEULLbzFfSWAkPJsGds7/view?usp=shari
 
 
 <a href="https://drive.google.com/uc?export=view&id=1El5tmUrr9RnNJEULLbzFfSWAkPJsGds7">
-<img src="https://drive.google.com/uc?export=view&id=1El5tmUrr9RnNJEULLbzFfSWAkPJsGds7" style="width: 1080px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+<img src="https://drive.google.com/uc?export=view&id=1El5tmUrr9RnNJEULLbzFfSWAkPJsGds7" style="width: 1080px; max-width: 100%; height: auto" title="add book page" />
 
 	
 	
 <a href="https://drive.google.com/uc?export=view&id=1dd1e5-L5-DBlX4DNBjKAe51-4orsztEx">
-<img src="https://drive.google.com/uc?export=view&id=1dd1e5-L5-DBlX4DNBjKAe51-4orsztEx" style="width: 1080px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+<img src="https://drive.google.com/uc?export=view&id=1dd1e5-L5-DBlX4DNBjKAe51-4orsztEx" style="width: 1080px; max-width: 100%; height: auto" title="add user page" />
 
 
 
