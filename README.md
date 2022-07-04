@@ -34,12 +34,10 @@ https://drive.google.com/file/d/1El5tmUrr9RnNJEULLbzFfSWAkPJsGds7/view?usp=shari
 <img src="https://drive.google.com/uc?export=view&id=1eBqQYKqcZio0FCgJX62Proe1yo-HkWKU" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
 
 
+<a href="https://drive.google.com/uc?export=view&id=19umtsQRyAYcQNZTcTcDf04jsdtIXYbeL">
+<img src="https://drive.google.com/uc?export=view&id=19umtsQRyAYcQNZTcTcDf04jsdtIXYbeL" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
 
-![zzz](https://www.w3schools.com/w3css/img_lights.jpg)
-![zzz](https://www.w3schools.com/w3css/img_lights.jpg)
-![zzz](https://www.w3schools.com/w3css/img_lights.jpg)
-![zzz](https://www.w3schools.com/w3css/img_lights.jpg)
-![zzz](https://www.w3schools.com/w3css/img_lights.jpg)
+
 
 
 
