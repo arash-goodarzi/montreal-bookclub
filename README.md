@@ -21,7 +21,7 @@ https://drive.google.com/file/d/1eBqQYKqcZio0FCgJX62Proe1yo-HkWKU/view?usp=shari
 
 
 
-
+<figure><img src="[images/myimage.jpg](https://drive.google.com/file/d/1eBqQYKqcZio0FCgJX62Proe1yo-HkWKU/view?usp=sharing)"><figcaption>image caption</figcaption></figure>
 
 
 
