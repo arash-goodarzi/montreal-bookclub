@@ -29,7 +29,10 @@ https://drive.google.com/file/d/1El5tmUrr9RnNJEULLbzFfSWAkPJsGds7/view?usp=shari
 
 
 ![zzz](https://www.w3schools.com/w3css/img_lights.jpg)
-![zzz](https://drive.google.com/file/d/1eBqQYKqcZio0FCgJX62Proe1yo-HkWKU/view?usp=sharing)
+
+<a href="https://drive.google.com/uc?export=view&id=[<FILEID>](https://drive.google.com/file/d/1eBqQYKqcZio0FCgJX62Proe1yo-HkWKU/view?usp=sharing)"><img src="https://drive.google.com/uc?export=view&id=<FILEID>" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+
+
 ![zzz](https://www.w3schools.com/w3css/img_lights.jpg)
 ![zzz](https://www.w3schools.com/w3css/img_lights.jpg)
 ![zzz](https://www.w3schools.com/w3css/img_lights.jpg)
