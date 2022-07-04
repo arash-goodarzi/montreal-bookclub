@@ -6,7 +6,7 @@ This project is for Borrowing and Returning of Books
 - ![#15f04f](https://via.placeholder.com/15/f03c15/f03c15.png) `#15f04f`
 
 
-- ![#15f04f](https://via.placeholder.com/15/f03c15/f03c15.png) `#15f04f## Frontend	=>	Next.js(react.js) `
+- ![#15f04f](https://via.placeholder.com/15/f03c15/f03c15.png) `Frontend	=>	Next.js(react.js) `
 ### react-table
 ### react-bootstrap
 ##  Backend		=> Java - Sping boot
