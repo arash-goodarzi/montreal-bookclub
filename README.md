@@ -33,7 +33,7 @@ https://drive.google.com/file/d/1El5tmUrr9RnNJEULLbzFfSWAkPJsGds7/view?usp=shari
 
 
 <a href="https://drive.google.com/uc?export=view&id=1efiLNCakbB_c5BIAmsDR3XgBDs0_YfN7">
-<img src="https://drive.google.com/uc?export=view&id=1efiLNCakbB_c5BIAmsDR3XgBDs0_YfN7" style="width: 1080px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+<img src="https://drive.google.com/uc?export=view&id=1efiLNCakbB_c5BIAmsDR3XgBDs0_YfN7" style="width: 1080px; max-width: 100%; height: auto" title="sign in page" />
 
 		
 
