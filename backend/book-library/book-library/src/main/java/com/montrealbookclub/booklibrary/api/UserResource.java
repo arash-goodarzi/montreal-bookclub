@@ -11,6 +11,7 @@ import com.montrealbookclub.booklibrary.domain.User;
 import com.montrealbookclub.booklibrary.service.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,9 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static org.springframework.http.HttpStatus.FORBIDDEN;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 @RequiredArgsConstructor
 
@@ -40,7 +43,6 @@ public class UserResource {
 
     @PostMapping("/user/save")
     public ResponseEntity<User> saveUser(@RequestBody User user) {
-
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/user/save").toString());
         return ResponseEntity.created(uri).body(userService.saveUser(user));
     }
@@ -50,6 +52,9 @@ public class UserResource {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("api/role/save").toString());
         return ResponseEntity.created(uri).body(userService.saveRole(role));
     }
+
+    @GetMapping("/roles")
+    public ResponseEntity<List<Role>> getRoles(){return ResponseEntity.ok().body(userService.getRoles());}
 
     @PostMapping("/role/addtouser")
     public ResponseEntity<?> addRoleToUser(@RequestBody RoleToUserForm form) {
@@ -117,7 +122,7 @@ public class UserResource {
                 new ObjectMapper().writeValue(response.getOutputStream(),error);
             }
         }else {
-            throw new RuntimeException("Refresh token is missiong");
+            throw new RuntimeException("Refresh token is missing");
         }
     }
 

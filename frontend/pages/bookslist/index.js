@@ -25,18 +25,6 @@ const BooksList = ({ booksDB }) => {
   // const { data: session, loading } = useSession();
   const [loading, setloading] = useState(true)
 
-  // const fetchBooks = async () => {
-  // await fetch('/api/discoveryBook')
-  //     .then(response => console.log(response))
-  //     // .then(response => response.json())
-  //     // .then(data => setBooksDB(data))
-  //     // .then(data => console.log("77777777"))
-  //     // .then(data => console.log(data))
-  //     // .catch(err => console.error(err));
-
-    
-  // }
-
   useEffect(() => {
     const securePage = async () => {
       const session = await getSession()
@@ -67,10 +55,6 @@ const BooksList = ({ booksDB }) => {
         'Content-Type': 'application/json'
       }
     })
-      // .then((res) => res.json())
-      // .then((data) => console.log(data))
-    
-    
   }
 
   return (
@@ -82,7 +66,7 @@ const BooksList = ({ booksDB }) => {
           </div>
           
           <div style={{display:'flex',alignContent:'center',justifyContent:'center',flexDirection: 'column'}}>
-            <Button onClick={handleSubmit} type="button" style={{ width:'100px',height:'50px',backgroundColor:'#F4F4F4',color:'#34495E'}} className="btn-sm" >Send {'  >>  '}</Button>
+            <Button onClick={handleSubmit} type="button" style={{ width:'100px',height:'50px',backgroundColor:'#F4F4F4',color:'#34495E'}} className="btn-sm" >Reserve {'  >>  '}</Button>
           </div>
           <div style={{margin:'0px 20px'}}>
             <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

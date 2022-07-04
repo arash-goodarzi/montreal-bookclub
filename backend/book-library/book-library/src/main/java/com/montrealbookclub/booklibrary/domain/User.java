@@ -3,6 +3,7 @@ package com.montrealbookclub.booklibrary.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class User {
     private String name;
     private String username;
     private String password;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
 

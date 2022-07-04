@@ -4,10 +4,12 @@ import com.montrealbookclub.booklibrary.domain.Book;
 import com.montrealbookclub.booklibrary.domain.Role;
 import com.montrealbookclub.booklibrary.domain.User;
 
+
 import java.util.List;
 
 public interface UserService {
     User saveUser(User user);
+
     Role saveRole(Role role);
     Book saveBook(Book book);
     void addRoleToUser(String username, String roleName);
@@ -17,6 +19,9 @@ public interface UserService {
     List<User> getUsers();
 
     List<Book> getBooks();
+
+
+    List<Role> getRoles();
 
 
 

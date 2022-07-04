@@ -15,11 +15,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -54,6 +52,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public User saveUser(User user) {
         log.info("Saving new user {} to the database",user.getName());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        for(Role value:user.getRoles()){
+            Role newRole = roleRepository.findById(value.getId()).get();
+            value.setName(newRole.getName());
+        };
         return userRepository.save(user);
     }
 
@@ -83,10 +85,19 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         log.info("Adding id{} to user {}",id,username);
         User user = userRepository.findByUsername(username);
         Optional<Book> book = bookRepository.findById(id);
-//        Book book = bookRepository.findByTitle(bookName);
+
         user.getBooks().add(book.get());
+
         book.get().setReserved(true);
         book.get().setBorrower(username);
+
+        int noOfDays = 21; // three weeks
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DAY_OF_YEAR, noOfDays);
+        Date date = calendar.getTime();
+        book.get().setReturnDate(date);
+
         bookRepository.save(book.get());
         return userRepository.save(user);
     }
@@ -100,6 +111,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.getBooks().remove(book.get());
         book.get().setReserved(false);
         book.get().setBorrower("");
+        book.get().setReturnDate(null);
         bookRepository.save(book.get());
         return userRepository.save(user);
     }
@@ -122,7 +134,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return  bookRepository.findAll();
     }
 
-
+    @Override
+    public List<Role> getRoles() {
+        log.info("Fetching all roles");
+        return roleRepository.findAll();
+    }
 
 
 }

@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Entity @Data @NoArgsConstructor @AllArgsConstructor
@@ -23,6 +24,8 @@ public class Book {
     private String bookInfoLink;
     private Boolean reserved;
 
+    @Temporal(TemporalType.DATE)
+    private Date returnDate;
 
     @ElementCollection
     private List<String> writers ;
