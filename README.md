@@ -28,7 +28,7 @@ https://drive.google.com/file/d/1El5tmUrr9RnNJEULLbzFfSWAkPJsGds7/view?usp=shari
 
 
 
-![abc](https://drive.google.com/file/d/1eBqQYKqcZio0FCgJX62Proe1yo-HkWKU/view?usp=sharing)
+
 
 
 
