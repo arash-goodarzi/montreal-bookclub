@@ -1,11 +1,11 @@
 # Montreal Bookclub (End-to-End project)
 This project is for Borrowing and Returning of Books
 
-## Frontend	=>	Next.js(react.js)
+## <span style="color: green"> Frontend	=>	Next.js(react.js) </span>
 ### react-table
 ### react-bootstrap
-## Backend		=> Java - Sping boot
+## <span style="color: green"> Backend		=> Java - Sping boot </span>
 ### JWT
 ### JPA
 			
-## Database	=> MySql 
+## <span style="color: green"> Database	=> MySql </span>
