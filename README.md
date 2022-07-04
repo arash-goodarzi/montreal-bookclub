@@ -42,5 +42,3 @@ This project is for Borrowing and Returning of Books
 <img src="https://drive.google.com/uc?export=view&id=1dd1e5-L5-DBlX4DNBjKAe51-4orsztEx" style="width: 1080px; max-width: 100%; height: auto" title="add user page" />
 
 
-
-
